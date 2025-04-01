@@ -1,0 +1,31 @@
+[01/04, 3:19 pm] +91 90081 01938: drop function getmaxsal//
+create function getmaxsal(dno int) 
+returns int
+deterministic
+begin
+declare psal int default 0;
+
+select max(sal) into psal from emp where deptno = dno;
+
+return psal;
+
+end//
+[01/04, 3:20 pm] +91 90081 01938: Calculate Total Salary per Department
+
+Develop a function that accepts a department ID and returns the total salary of employees in that department.
+
+Find Employee Experience in Years
+
+Create a function that takes an employee ID as input and calculates the number of years the employee has worked in the company based on their hire date.
+
+Retrieve Department Name Using Employee ID
+
+Write a function that takes an employee ID and returns the name of the department the employee belongs to.
+
+Identify the Highest-Paid Employee in a Department
+
+Create a function that accepts a department ID and returns the name of the highest-paid employee in that department.
+
+Count Employees in a Department
+
+Develop a function that takes a department ID as input and returns the total number of employees working in that department.
