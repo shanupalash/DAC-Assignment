@@ -21,7 +21,6 @@ db.employees.insertOne({
 ----------------------------------------------
 
 
-
 db.employees.insertMany([{
 "emp_id": 102,
 "first_name": "Priya",
@@ -153,3 +152,32 @@ db.employees.insertMany([{
 
 db.employees.find({"department": {$eq:"IT"}});
 
+
+
+
+
+7️. Find Employees Earning More Than 70,000
+--------------------------------------------------------
+
+
+db.employees.find({"salary": {$gt:"70000"}});
+
+
+8️. Sort Employees by Salary (Descending Order)
+-----------------------------------------------------------
+db.employees.find().sort({ salary: -1 })
+
+
+
+9.Find the Oldest Employee (by Hire Date)
+---------------------------------------------------------
+db.employees.find().sort({ hireDate: 1 }).limit(1)
+
+
+10. Retrieve Employees with 'A' as First Letter and 'N' as Last Letter
+---------------------------------------------------------------------
+
+db.employees.find({
+  first_name: /^P/i,
+  last_name: /u$/i
+})
