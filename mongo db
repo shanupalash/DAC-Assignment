@@ -1,0 +1,155 @@
+To create Collection
+------------------------------------------------
+
+use employees;
+
+To Insert One Data in collection.
+----------------------------------------------
+
+db.employees.insertOne({
+"emp_id": 101,
+"first_name": "Amit",
+"last_name": "Sharma",
+"email": "amit.sharma@company.in",
+"hire_date": "2020-06-15",
+"salary": 75000,
+"department": "IT"
+});
+
+
+1 . To Insert Many Data in once in collection.
+----------------------------------------------
+
+
+
+db.employees.insertMany([{
+"emp_id": 102,
+"first_name": "Priya",
+"last_name": "Verma",
+"email": "priya.verma@company.in",
+"hire_date": "2019-04-20",
+"salary": 62000,
+"department": "HR"
+},
+{
+"emp_id": 103,
+"first_name": "Rohit",
+"last_name": "Patel",
+"email": "rohit.patel@company.in",
+"hire_date": "2021-01-10",
+"salary": 85000,
+"department": "Finance"
+},
+{
+"emp_id": 104,
+"first_name": "Sneha",
+"last_name": "Iyer",
+"email": "sneha.iyer@company.in",
+"hire_date": "2018-09-25",
+"salary": 90000,
+"department": "IT"
+},
+{
+"emp_id": 105,
+"first_name": "Vikram",
+"last_name": "Singh",
+"email": "vikram.singh@company.in",
+"hire_date": "2023-02-10",
+"salary": 55000,
+"department": null
+}]);
+
+
+
+
+2 . Retrieve All Employees or 
+To Display Data in collection.
+----------------------------------------------
+
+db.employees.find();
+
+
+
+insert 5 new data in employees Collection
+-------------------------------------------------- 
+
+db.employees.insertMany([{
+"emp_id": 106,
+"first_name": "Gunjan",
+"last_name": "kumar",
+"email": "Gunjan.kumar@company.in",
+"hire_date": "2010-05-31",
+"salary": 82000,
+"department": "IT"
+},
+{
+"emp_id": 107,
+"first_name": "vipul",
+"email": "vipul.patel@company.in",
+"hire_date": "2021-01-10",
+"salary": 85000,
+"department": "Finance"
+},
+{
+"emp_id": 108,
+"first_name": "subramanyan",
+"last_name": "Iyer",
+"email": "subramanyan.iyer@company.in",
+"hire_date": "2018-09-25",
+"salary": 90000,
+"department": "IT"
+},
+{
+"emp_id": 109,
+"first_name": "Palash",
+"last_name": "Sahu",
+"email": "palash.sahu@company.in",
+"hire_date": "2023-02-10",
+"salary": 55000,
+"department": null
+}]);
+
+
+
+
+3. .Find an Employee by Name
+----------------------------------------------
+
+	db.employees.find({"first_name": {$eq:"Palash"}});
+
+
+
+
+
+4. Update Employee Salary
+----------------------------------------------
+
+	
+	
+  db.employees.updateOne(
+  { "emp_id": 109 },
+  [
+    {
+      $set: {
+        "salary": { $multiply: [ "$salary", 1.10 ] }
+      }
+    }
+  ]
+);
+
+	
+5. Delete an Employee
+----------------------------------------------
+
+	db.employees.deleteOne({"emp_id":108});
+
+
+	
+
+
+
+6️. Retrieve Employees in IT Department
+--------------------------------------------------------
+
+db.employees.find({"department": {$eq:"IT"}});
+
